@@ -13,3 +13,8 @@ source $brew_prefix"/opt/asdf/libexec/asdf.fish"
 
 # Start up starship.
 starship init fish | source
+
+# Aliases
+alias ll "ls -lahG"
+alias cat "bat -P"
+alias less "bat"
