@@ -34,7 +34,7 @@
 [core]
 	autocrlf = "input"
 	excludesfile = "~/.gitignore"
-	pager = "/nix/store/z994yjs6p8pcihd7cdqq65wl2bxsnv05-diff-so-fancy-1.4.3/bin/diff-so-fancy | /nix/store/lkrpxlb2q92nl1ixzzr0n1gd52pc2p8j-less-600/bin/less --tabs=4 -RFX"
+	pager = "diff-so-fancy | less --tabs=4 -RFX"
 
 [diff]
 	renamelimit = 5000
@@ -55,7 +55,7 @@
 	defaultBranch = "main"
 
 [interactive]
-	diffFilter = "/nix/store/z994yjs6p8pcihd7cdqq65wl2bxsnv05-diff-so-fancy-1.4.3/bin/diff-so-fancy --patch"
+	diffFilter = "diff-so-fancy --patch"
 
 [merge]
 	renamelimit = 5000
@@ -68,6 +68,7 @@
 
 [user]
 	name = "Geoff Garbers"
+	email = "{{ if eq .chezmoi.os "darwin" -}} geoff@garbers.co.za {{- else -}} geoff@unifii.solar {{- end }}"
 
 [includeIf "gitdir:~/Workspace/"]
 	path = "~/Workspace/.gitconfig"
