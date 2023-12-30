@@ -21,7 +21,7 @@ brew "starship"
 brew "telnet"
 brew "yq"
 
-{{- if eq .chezmoi.os "darwin" -}}
+{{ if eq .chezmoi.os "darwin" -}}
 # For installing PHP extensions through asdf
 brew "autoconf"
 brew "automake"
@@ -40,7 +40,7 @@ brew "libzip"
 brew "pkg-config"
 brew "re2c"
 brew "zlib"
-{{- end -}}
+{{- end }}
 
 cask "android-file-transfer"
 cask "deezer"
@@ -54,7 +54,6 @@ cask "google-cloud-sdk"
 cask "jetbrains-toolbox"
 cask "iterm2"
 cask "obs"
-cask "orbstack"
 cask "steam"
 cask "sublime-text"
 cask "transmission"
