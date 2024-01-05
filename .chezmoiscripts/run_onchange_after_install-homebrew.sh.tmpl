@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# Brewfile hash: {{ include (joinPath .chezmoi.homeDir ".config" "homebrew" "Brewfile") | sha256sum }}
+
+if ! command -v brew 1>/dev/null 2>/dev/null; then
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+export PATH="/opt/homebrew/bin:$PATH"
+
+brew bundle install --file ~/.config/homebrew/Brewfile
