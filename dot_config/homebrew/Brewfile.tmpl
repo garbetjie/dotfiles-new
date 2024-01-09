@@ -35,6 +35,10 @@ brew "pkg-config"
 brew "re2c"
 brew "zlib"
 
+cask "{{ if eq .chezmoi.os "darwin" -}} orbstack {{- else -}} docker {{- end }}"
+# cask "dotnet-sdk"
+# cask "1password-cli"
+
 {{ if eq .chezmoi.os "darwin" -}}
 # macOS-only from here on.
 
@@ -55,6 +59,3 @@ cask "sublime-text"
 cask "transmission"
 cask "vlc"
 {{- end }}
-
-cask "{{ if eq .chezmoi.os "darwin" -}} orbstack {{- else -}} docker {{- end }}"
-cask "dotnet-sdk"
