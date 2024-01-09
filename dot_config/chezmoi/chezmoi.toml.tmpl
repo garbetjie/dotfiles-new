@@ -2,6 +2,7 @@
 {{- $homebrew := true -}}{{/* true if Homebrew should be installed. */}}
 {{- $unifii := false -}}{{/* true if this machine is used for Unifii */}}
 {{- $wsl := false -}}{{/* true if we're running inside WSL */}}
+{{- $personal := true -}}
 
 {{- $os := .chezmoi.os -}}
 {{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
@@ -15,6 +16,7 @@
 {{- $email := "geoff@garbers.co.za" -}}
 {{- if $unifii -}}
 {{-   $email = "geoff@unifii.solar" -}}
+{{-   $personal = false -}}
 {{- end -}}
 
 [git]
@@ -24,3 +26,4 @@ autoCommit = false
 docker = {{ $docker }}
 homebrew = {{ $homebrew }}
 unifii = {{ $unifii }}
+personal = {{ $personal }}
