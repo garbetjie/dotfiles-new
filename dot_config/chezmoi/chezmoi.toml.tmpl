@@ -1,0 +1,26 @@
+{{- $docker := true -}}{{/* true if Docker should be installed */}}
+{{- $homebrew := true -}}{{/* true if Homebrew should be installed. */}}
+{{- $unifii := false -}}{{/* true if this machine is used for Unifii */}}
+{{- $wsl := false -}}{{/* true if we're running inside WSL */}}
+
+{{- $os := .chezmoi.os -}}
+{{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
+{{-   $os = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+{{- if and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{-   $wsl = true -}}
+{{- end -}}
+
+{{- $email := "geoff@garbers.co.za" -}}
+{{- if $unifii -}}
+{{-   $email = "geoff@unifii.solar" -}}
+{{- end -}}
+
+[git]
+autoCommit = false
+
+[data]
+docker = {{ $docker }}
+homebrew = {{ $homebrew }}
+unifii = {{ $unifii }}
