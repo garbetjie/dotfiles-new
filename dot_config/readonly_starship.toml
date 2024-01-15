@@ -1,0 +1,147 @@
+[cmd_duration]
+show_milliseconds = true
+
+[conda]
+disabled = true
+
+[crystal]
+disabled = true
+
+[daml]
+disabled = true
+
+[dart]
+disabled = true
+
+[deno]
+disabled = true
+
+[directory]
+truncate_to_repo = false
+truncation_length = 7
+truncation_symbol = ".../"
+
+[directory.substitutions]
+"/Users/geoff" = "~"
+"/Users/geoffrey.garbers" = "~"
+"/home/geoff" = "~"
+
+[docker_context]
+disabled = true
+
+[dotnet]
+disabled = false
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[env_var]
+disabled = true
+
+[erlang]
+disabled = true
+
+[haskell]
+disabled = true
+
+[helm]
+disabled = true
+
+[hostname]
+disabled = true
+
+[java]
+disabled = true
+
+[julia]
+disabled = true
+
+[kotlin]
+disabled = true
+
+[lua]
+disabled = true
+
+[nim]
+disabled = true
+
+[nix_shell]
+disabled = false
+
+[ocaml]
+disabled = true
+
+[openstack]
+disabled = true
+
+[package]
+disabled = false
+
+[perl]
+disabled = true
+
+[pulumi]
+disabled = true
+
+[purescript]
+disabled = true
+
+[raku]
+disabled = true
+
+[red]
+disabled = true
+
+[rlang]
+disabled = true
+
+[rust]
+disabled = true
+
+[scala]
+disabled = true
+
+[shell]
+disabled = true
+
+[shlvl]
+disabled = false
+
+[singularity]
+disabled = true
+
+[spack]
+disabled = true
+
+[status]
+disabled = false
+
+[sudo]
+disabled = false
+
+[swift]
+disabled = true
+
+[terraform]
+format = "[$symbol$workspace]($style) "
+
+[time]
+disabled = true
+
+[username]
+disabled = true
+
+[vagrant]
+disabled = true
+
+[vcsh]
+disabled = true
+
+[vlang]
+disabled = true
+
+[zig]
+disabled = true
