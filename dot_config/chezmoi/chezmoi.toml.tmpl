@@ -1,8 +1,9 @@
-{{- $docker := true -}}{{/* true if Docker should be installed */}}
-{{- $homebrew := true -}}{{/* true if Homebrew should be installed. */}}
+{{- $docker := false -}}{{/* true if Docker should be installed */}}
 {{- $unifii := false -}}{{/* true if this machine is used for Unifii */}}
 {{- $wsl := false -}}{{/* true if we're running inside WSL */}}
-{{- $personal := true -}}
+{{- $headless := false -}}{{/* true if machine has no keyboard/screen attached */}}
+{{- $personal := false -}}
+{{- $email := "geoff@garbers.co.za" -}}
 
 {{- $os := .chezmoi.os -}}
 {{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
@@ -13,17 +14,23 @@
 {{-   $wsl = true -}}
 {{- end -}}
 
-{{- $email := "geoff@garbers.co.za" -}}
-{{- if $unifii -}}
+{{- if eq .chezmoi.hostname "gg-unifii" -}}
 {{-   $email = "geoff@unifii.solar" -}}
-{{-   $personal = false -}}
+{{-   $docker = true -}}
+{{- else if eq .chezmoi.hostname "gg-macbook" -}}
+{{-   $docker = true -}}
+{{-   $personal = true -}}
+{{- else if eq .chezmoi.hostname "gimli" -}}
+{{-   $docker = true -}}
+{{-   $headless = true -}}
 {{- end -}}
 
 [git]
 autoCommit = false
 
 [data]
+headless = {{ $headless }}
 docker = {{ $docker }}
-homebrew = {{ $homebrew }}
 unifii = {{ $unifii }}
 personal = {{ $personal }}
+email = {{ $email }}
