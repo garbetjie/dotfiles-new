@@ -4,9 +4,11 @@ end
 
 # Set shared variables.
 set brew_prefix "/opt/homebrew"
+set DOTNET_ROOT $HOME"/.local/share/dotnet"
 
 # Modify $PATH
 fish_add_path $brew_prefix"/bin"
+fish_add_path $DOTNET_ROOT
 
 # Source in required files.
 source $brew_prefix"/opt/asdf/libexec/asdf.fish"
