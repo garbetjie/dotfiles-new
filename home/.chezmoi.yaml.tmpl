@@ -1,0 +1,17 @@
+---
+git:
+  autoCommit: false
+
+data:
+  wsl: {{ and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+  email: {{ eq .chezmoi.hostname "gg-unifii" | ternary "geoff.garbers@solarafrica.com" "geoff@garbers.co.za" | quote }}
+  unifii: {{ eq .chezmoi.hostname "gg-unifii" }}
+  headless: {{ not (list "gg-unifii" "gg-macbook" | has .chezmoi.hostname) }}
+  personal: {{ eq .chezmoi.hostname "gg-macbook" }}
+
+  ssh_keys:
+    vault: {{ get (dict "gg-unifii" "Unifii" "gg-macbook" "Family") .chezmoi.hostname | default "" | quote }}
+    item: "SSH Key"
+
+  install:
+    docker: {{ list "gg-unifii" "gg-macbook" | has .chezmoi.hostname }}

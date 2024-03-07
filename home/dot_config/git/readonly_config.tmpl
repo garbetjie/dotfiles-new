@@ -68,7 +68,7 @@
 
 [user]
 	name = "Geoff Garbers"
-	email = "{{ .email }}"
+	email = {{ .email | quote }}
 
 [includeIf "gitdir:~/Workspace/"]
 	path = "~/Workspace/.gitconfig"
