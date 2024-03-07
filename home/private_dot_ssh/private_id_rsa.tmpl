@@ -1,0 +1,3 @@
+{{- if and (ne .ssh_keys.vault "") (ne .ssh_keys.item "") -}}
+{{ onepasswordRead (print "op://" .ssh_keys.vault "/" .ssh_keys.item "/private_key") }}
+{{- end -}}

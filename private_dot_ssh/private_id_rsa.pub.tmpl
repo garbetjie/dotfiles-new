@@ -1,5 +1,0 @@
-{{- if .personal -}}
-{{ onepasswordRead "op://Personal/SSH Key/public_key" }}
-{{- else if .unifii -}}
-{{ onepasswordRead "op://Unifii/SSH Key/public_key" }}
-{{- end -}}
