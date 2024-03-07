@@ -1,0 +1,32 @@
+{{- $wsl := and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{- $email := "geoff@garbers.co.za" -}}
+{{- $headless := true -}}{{/* True if the machine has no keyboard/mouse. */}}
+{{- $unifii := false -}}{{/* true if this machine is used for Unifii */}}
+{{- $personal := false -}}
+{{- $install := dict -}}
+{{- $ssh_keys := dict -}}
+
+{{- if eq .chezmoi.hostname "gg-unifii" -}}
+  {{- $_ := set $install "docker" true -}}
+  {{- $_ := set $ssh_keys "vault" "Unifii" -}}
+  {{- $unifii = true }}
+  {{- $email = "geoff.garbers@solarafrica.com" -}}
+  {{- $headless = false -}}
+{{- else if eq .chezmoi.hostname "gg-macbook" -}}
+  {{- $_ := set $install "docker" true -}}
+  {{- $_ := set $ssh_keys "vault" "Personal" -}}
+  {{- $headless = false -}}
+  {{- $personal = true -}}
+{{- end -}}
+
+---
+wsl: {{ $wsl }}
+email: {{ $email | quote }}
+unifii: {{ $unifii }}
+
+ssh_keys:
+  vault: {{ get $ssh_keys "vault" | default "" }}
+  item: "SSH Key"
+
+install:
+  docker: {{ get $install "docker" | default false }}
